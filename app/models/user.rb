@@ -101,6 +101,10 @@ class User < ActiveRecord::Base
     spec.full_name.or_else(screen_name)
   end
 
+  def avatar
+    Avatar.new(self)
+  end
+
   private
 
   # Generate a unique identifier for a user
