@@ -1,0 +1,14 @@
+
+database: rails_space_development
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20110705022821  Create users
+   up     20110709005051  Create specs
+   up     20110708185432  Add authorization token
+   up     20110705032410  Add user timestamps
+   up     20110711214059  Create geo data
+   up     20110707202813  Add sessions table
+   up     20110710002833  Create faqs
+   up     20110705031952  Remove user timestamps
+

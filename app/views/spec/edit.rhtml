@@ -1,0 +1,25 @@
+<%= form_for :spec do |form| %>
+<fieldset>
+   <legend><%= @title %></legend>
+   <%= error_messages_for 'spec' %>
+   <%= render :partial => "name_rows",
+              :locals => { :form => form } %>
+   <div class="form_row">
+     <label for="gender">Gender:</label>
+     <%= radio_button :spec, :gender, "Male" %>Male
+     <%= radio_button :spec, :gender, "Female" %>Female
+   </div>
+   <div class="form_row">
+     <label for="birthdate">Birthdate:</label>
+     <%= date_select :spec, :birthdate,
+                            :start_year => Spec::START_YEAR,
+                            :end_year => Time.now.year,
+                            :include_blank => true,
+                            :order => [:month, :day, :year] %>
+   </div>
+   <%= render :partial => "other_field_rows",
+              :locals => { :form => form } %>
+   <%= submit_tag "Update", :class => "submit" %>
+</fieldset>
+<% end %>
+
