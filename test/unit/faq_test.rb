@@ -1,8 +1,17 @@
-require 'test_helper'
+﻿require 'test_helper'
 
 class FaqTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+	fixtures :faqs
+	
+	def setup
+		@valid_faq = faqs(:valid_faq)
+	end
+	
+	def test_max_lengths
+		Faq::QUESTIONS.each do |question|
+			assert_length :max, @valid_faq, question, DB_TEXT_MAX_LENGTH
+		end
+	end
+	
+	
 end
