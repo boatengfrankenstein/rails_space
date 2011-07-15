@@ -1,5 +1,7 @@
 RailsSpace::Application.routes.draw do
 
+  get "email/remind"
+
   get "avatar/index"
 
   get "avatar/upload"

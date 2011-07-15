@@ -11,3 +11,10 @@ HTML_TEXT_FIELD_SIZE = 15
 require 'will_paginate'
 # require 'acts_as_ferret'
 
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.dslextreme.com",
+  :port => 25,
+  :domain => "railsspace.com"
+}
+
