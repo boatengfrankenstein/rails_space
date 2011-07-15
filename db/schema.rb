@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110711214059) do
+ActiveRecord::Schema.define(:version => 20110715173514) do
 
   create_table "faqs", :force => true do |t|
     t.integer "user_id",    :null => false
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20110711214059) do
     t.text    "books"
   end
 
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.text     "status"
+    t.datetime "created_at"
+    t.datetime "accepted_at"
+  end
+
   create_table "geo_data", :force => true do |t|
     t.text  "zip_code"
     t.float "latitude"
@@ -32,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20110711214059) do
     t.text  "city"
     t.text  "state"
     t.text  "county"
-    t.text  "type"
   end
 
   add_index "geo_data", ["zip_code"], :name => "zip_code_optimization"

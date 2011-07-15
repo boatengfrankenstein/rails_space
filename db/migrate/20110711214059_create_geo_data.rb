@@ -7,12 +7,12 @@ class CreateGeoData < ActiveRecord::Migration
       t.column :city, :text
       t.column :state, :text
       t.column :county, :text
-      t.column :type, :text
+#      t.column :type, :text
     end
     add_index "geo_data", ["zip_code"], :name => "zip_code_optimization"
 
-    csv_file = "#{RAILS_ROOT}/db/migrate/geo_data.csv"
-    fields = '(zip_code, latitude, longitude, city, state, county)'
+#    csv_file = "#{RAILS_ROOT}/db/migrate/geo_data.csv"
+#    fields = '(zip_code, latitude, longitude, city, state, county)'
 
 #    execute "LOAD DATA INFILE '#{csv_file}' INTO TABLE geo_data FIELDS " +
 #            "TERMINATED BY ',' OPTIONALLY ENCLOSED BY \"\"\"\" " +

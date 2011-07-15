@@ -18,4 +18,11 @@ class UserMailer < ActionMailer::Base
     body mail
   end
 
+  def friend_request(mail)
+    subject 'New friend request at RailsSpace.com'
+    from 'RailsSpace <do-not-reply@railsspace.com>'
+    recipients mail[:friend].email
+    body mail
+  end
+
 end
