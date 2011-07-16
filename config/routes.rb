@@ -1,5 +1,9 @@
 RailsSpace::Application.routes.draw do
 
+  resources :blogs do
+    resources :posts
+  end
+
   get "email/remind"
 
   get "avatar/index"
@@ -49,7 +53,7 @@ match 'edit' => 'user#edit'
 match 'profile/:screen_name' => 'profile#show', :as => :profile
 match 'user' => 'user#index', :as => :hub
 match 'community' => 'community#index'
-
+resources :specs
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -53,4 +53,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Create @blog variables for profile and user controllers
+  def make_profile_vars
+    @spec = @user.spec ||= Spec.new
+    @faq = @user.faq ||= Faq.new
+    @blog = @user.blog ||= Blog.new
+    @pages, @posts = paginate(@blog.posts, :per_page => 3)
+  end
+
 end
