@@ -1,7 +1,9 @@
 RailsSpace::Application.routes.draw do
 
   resources :blogs do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
 
   get "email/remind"
