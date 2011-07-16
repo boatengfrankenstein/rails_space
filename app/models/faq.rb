@@ -9,7 +9,8 @@ class Faq < ActiveRecord::Base
   TEXT_ROWS = 10
   TEXT_COLS = 40
 
-  validates_length_of QUESTIONS, :maximum => DB_TEXT_MAX_LENGTH
+  validates_length_of QUESTIONS,
+                      :maximum => DB_TEXT_MAX_LENGTH
 
   def initialize
     super

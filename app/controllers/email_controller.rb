@@ -19,7 +19,7 @@ class EmailController < ApplicationController
 
   # Message a user
   def correspond
-    user = User.find(session[:user_id]
+    user = User.find(session[:user_id])
     recipient = User.find_by_screen_name(params[:id])
     @title = "Email #{recipient.name}"
     if param_posted?(:message)
@@ -28,10 +28,10 @@ class EmailController < ApplicationController
         UserMailer.deliver_message(
           :user => user,
           :recipient => recipient,
-          :message => @message.
+          :message => @message,
           :user_url => profile_for(user),
           :reply_url => url_for(:action => "correspond",
-                                :id => user.screen_name)
+                                :id => user.screen_name))
         flash[:notice] = "Email sent."
         redirect_to profile_for(recipient)
       end

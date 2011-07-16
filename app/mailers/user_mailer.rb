@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
   def message(mail)
     subject mail[:message].subject
     from 'RailsSpace <do-not-reply@railsspace.com>'
-    recipients mail[;recipient].email
+    recipients mail[:recipient].email
     body mail
   end
 

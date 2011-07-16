@@ -10,9 +10,8 @@ class FriendshipController < ApplicationController
       :user => @user,
       :friend => @friend,
       :user_url => profile_for(@user),
-      :accept_url => url_for(:action => "accept", id: => @user.screen_name),
-      :decline_url => url_for(:action => "decline", :id => @user.screen_name)
-    )
+      :accept_url => url_for(:action => "accept", :id => @user.screen_name),
+      :decline_url => url_for(:action => "decline", :id => @user.screen_name))
     flash[:notice] = "Friend request sent."
     redirect_to profile_for(@friend)
   end

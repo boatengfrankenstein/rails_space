@@ -72,11 +72,11 @@ class Avatar < ActiveRecord::Base
   # We use ImageMagick's convert command to ensure sensible image sizes
   def successful_conversion?
     # Prepare the filenames for the conversion
-    source = File.join("tmp", "#{@user.screen_name)_full_size")
+    source = File.join("tmp", "#{@user.screen_name}_full_size")
     full_size = File.join(DIRECTORY, filename)
     thumbnail = File.join(DIRECTORY, thumbnail_name)
     # Ensure that small and large images both work by writing to a normal file
-    # (Small files show up as StringIO, larger ones as TempFiles
+    # (Small files show up as StringIO, larger ones as TempFiles)
     File.open(source, "wb") { |f| f.write(@image.read) }
     # Convert the files
     system("#{convert} #{source} -resize #{IMG_SIZE} #{full_size}")

@@ -9,8 +9,7 @@ class CommunityController < ApplicationController
       @pages, specs = paginate(:specs,
                                :conditions => ["last_name LIKE ?", @initial+"%"],
                                :order => "last_name, first_name")
-      @users = specs.collect do |spec|
-            spec.user
+      @users = specs.collect { |spec| spec.user }
     end
   end
 
@@ -40,9 +39,9 @@ class CommunityController < ApplicationController
         @users.each { |user| user.spec ||= Spec.new }
         @users = @users.sort_by { |user| user.spec.last_name }
         @pages, @users = paginate(@users)
-      # rescue Ferret::QueryParser::QueryParseException
-      #   @invalid = true
-      # end
+      rescue Ferret::QueryParser::QueryParseException
+        @invalid = true
+      end
     end
   end
 

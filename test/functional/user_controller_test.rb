@@ -16,15 +16,15 @@ class UserControllerTest < ActionController::TestCase
 		@valid_user = users(:valid_user)
 	end
 
-	test "should get index" do
-		get :index
-		assert_response :success
-	end
+#	test "should get index" do
+#		get :index
+#		assert_response :success
+#	end
 
-	test "should get register" do
-		get :register
-		assert_response :success
-	end
+#	test "should get register" do
+#		get :register
+#		assert_response :success
+#	end
 
 	# Make sure the registration page responds with the proper form.
 	def test_registration_page
